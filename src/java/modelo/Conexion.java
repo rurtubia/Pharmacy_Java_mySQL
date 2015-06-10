@@ -21,15 +21,19 @@ public class Conexion {
         }
     }
     
-    public void eliminar(String codigo)
+    public int eliminar(String codigo)
     {
+        int eliminado = 0;
         try {
             conectar();
-            state.executeUpdate("DELETE FROM medicamento WHERE codigo ='"+codigo+"';");
+            
+            eliminado = state.executeUpdate("DELETE FROM medicamento WHERE codigo ='"+codigo+"';");
             conn.close();
-        } catch (Exception e) {
+        } catch (Exception e) 
+        {
             e.getStackTrace();
         }
+        return eliminado;
     }
     
     public void insertar(String codigo, String farmaco,int precio)
@@ -65,7 +69,7 @@ public class Conexion {
         Medicamento medicamento = new Medicamento();
         
         try {
-            conectar();;
+            conectar();
             ResultSet rs = state.executeQuery("SELECT * FROM medicamento WHERE codigo = '"+codigo+"';");
             while (rs.next()) {
                 medicamento.setCodigo((String)rs.getObject(1));

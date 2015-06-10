@@ -13,7 +13,7 @@
     </head>
     <body>
         <h2>Ingreso de Medicamento</h2>
-        
+        <form action="procesar_ingreso.do" method="POST">
         <table border="0">
             <tbody>
                 <tr>
@@ -34,6 +34,6 @@
                 </tr>
             </tbody>
         </table>
-
+        </form>
     </body>
 </html>
